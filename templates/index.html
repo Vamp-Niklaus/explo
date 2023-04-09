@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block css %}
+.container{
+    display:flex;
+    flex-direction:row;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+.item{
+    width: 200px;
+    border-radius: 6px;
+    box-shadow: 4px 4px 10px 4px grey;
+    margin-left: 50px;
+}
+.item:hover{
+    border-radius: 6px;
+    box-shadow: 10px 10px 20px 10px black;
+}
+img{
+    border-radius: 6px;
+}
+.submit{
+    border: 0px;
+    background-color:white;
+}
+{% endblock css %}
+
+{% block title %}Web-Series{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+        {% for item in movie %}
+        <div class="item my-3">
+            <a href="/movie/{{item.m_id}}" class="blog-img"
+                style="color: black;text-decoration-line: none;text-align:center">
+                <img class="center" src='{{item.portrait}}' width="100%"  alt="oop">
+                <h5 class="first-txt">
+                    {{item.m_name}} [{{item.rating}}]</h5>
+            </a>
+            {% comment %} <div class='text-center'>
+            <form method = 'post' action="/ratings">
+                {% csrf_token %}
+                <div style="display:flex;justify-content:left;margin-left:5px;">
+                    <div class="stars">
+                        <input class="star star-5" value="5" id="star-5" type="radio" name="star" required ><label class="star star-5" for="star-5"></label>
+                        <input class="star star-4" value="4" id="star-4" type="radio" name="star" required ><label class="star star-4" for="star-4"></label>
+                        <input class="star star-3" value="3" id="star-3" type="radio" name="star" required ><label class="star star-3" for="star-3"></label>
+                        <input class="star star-2" value="2" id="star-2" type="radio" name="star" required ><label class="star star-2" for="star-2"></label>
+                        <input class="star star-1" value="1" id="star-1" type="radio" name="star" required ><label class="star star-1" for="star-1"></label>
+                        <input type="hidden" name='ron' id ='ron' value="{{item.m_id}}">
+                    </div>
+                    <div style="margin:10px;">
+                        <button type="submit" class="submit">
+                            <img src="../static/submit.png" alt="balk" width="20">
+                        </button>
+                    </div>
+                </div>
+            </form>
+            </div> {% endcomment %}
+        </div>
+
+        {% endfor %}
+    </div>
+
+ <p align="center">created by Rakesh</p>
+
+
+    {% endblock body %}
