@@ -89,7 +89,7 @@ DATABASES = {
 #         'HOST': 'Niklaus.mysql.pythonanywhere-services.com',
 #         'PORT': '3306',
 #         'USER': 'Niklaus',
-#         'PASSWORD': 'R@k35h690',
+#         'PASSWORD': '********',
 #     }
 # }
 
